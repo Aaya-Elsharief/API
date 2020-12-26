@@ -5,10 +5,15 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//write your code 
+// get method
 app.get('/user',(req,res)=>{
-    res.json({name:"taymaa"});
-})
+    res.json({'name':req.query.name});
+});
+
+//post method
+app.post('/user',(req,res)=>{
+    res.json({'name':req.body.name});
+});
 
 
 app.listen(3000,()=>{
